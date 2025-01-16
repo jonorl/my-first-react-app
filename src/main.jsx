@@ -4,6 +4,7 @@ import Salutation from './Greeting.jsx'
 import { DisplayChocotorta } from './Chocotorta.jsx'
 import './index.css'
 import App from './Animals.jsx'
+import Buttons from './Buttons.jsx'
 import PackingList from './Packed.jsx'
 
 createRoot(document.getElementById('root')).render(
@@ -12,5 +13,6 @@ createRoot(document.getElementById('root')).render(
     <Salutation />
     <App />
     <PackingList />
+    <Buttons />
   </StrictMode>,
 )
