@@ -1,27 +1,39 @@
 import { useState } from 'react'
 
 export default function Person() {
-    const [person, setPerson] = useState({ name: "John", age: 100 });
-  
-    const handleIncreaseAge = () => {
-      console.log("in handleIncreaseAge (before setPerson call): ", person);
-      setPerson((prevPerson) => ({ ...prevPerson, age: prevPerson.age + 1 }));
-      setPerson((prevPerson) => ({ ...prevPerson, age: prevPerson.age + 1 }));
-      // we've called setPerson, surely person has updated?
-    //   setPerson({ ...person, age: person.age + 1 });
-      console.log("in handleIncreaseAge (after setPerson call): ", person);
-    };
-  
-    // this console.log runs every time the component renders
-    // what do you think this will print?
-    console.log("during render: ", person);
-  
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+
+    const fullName = firstName + ' ' + lastName;
+
+    function handleFirstNameChange(e) {
+        setFirstName(e.target.value);
+    }
+
+    function handleLastNameChange(e) {
+        setLastName(e.target.value);
+    }
+
+
     return (
-      <>
-        <h1>{person.name}</h1>
-        <h2>{person.age}</h2>
-        <button onClick={handleIncreaseAge}>Increase age</button>
-      </>
+        <>
+            <label>
+                First name:{' '}
+                <input
+                    value={firstName}
+                    onChange={handleFirstNameChange}
+                />
+            </label>
+            <label>
+                Last name:{' '}
+                <input
+                    value={lastName}
+                    onChange={handleLastNameChange}
+                />
+            </label>
+            <h1>
+                {fullName}
+            </h1>
+        </>
     );
-  }
-  
+}
