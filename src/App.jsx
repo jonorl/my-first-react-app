@@ -6,8 +6,15 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
 
+  const [counter, setCounter] = useState(0);
+
+  setInterval(() => {
+    setCounter(count => count + 1)
+  }, 1000);
+
   return (
     <>
+      <p>{counter} seconds have passed.</p>
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
